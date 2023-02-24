@@ -307,3 +307,13 @@
 // console.log(userSecond.calcAge())
 // console.log(userSecond.calcAgeNew())
 
+
+// МАССИВЫ
+
+const userArr = ["jay", 30, "Hello"]
+console.log(userArr)
+userArr[3] = "Saturn"
+console.log(userArr)
+console.log(userArr[userArr.length - 2])
+console.log(userArr.at(-1))
+
