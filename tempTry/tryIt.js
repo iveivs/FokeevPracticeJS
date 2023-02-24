@@ -39,8 +39,8 @@
 // const result = calc(10, 4, 7);
 // console.log(result);
 
-const user = {
-    name: "John",
-    age: 33
-}
-console.log(user);
+// const user = {
+//     name: "John",
+//     age: 33
+// }
+// console.log(user);

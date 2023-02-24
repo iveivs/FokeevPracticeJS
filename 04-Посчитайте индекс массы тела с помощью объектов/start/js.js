@@ -1,3 +1,4 @@
+'use strict'
 /* 
 
 ЗАДАЧА:
@@ -25,8 +26,30 @@
 3. - Не забывайте про метод this.
 
 */
+const user1 = {
+    name: "Petr",
+    weight: 72,
+    height: 1.88,
+    bmi() {
+        return this.weight /  (this.height * this.height )
+    }
+}
+console.log(Math.floor(user1.bmi()));
 
+const user2 = {
+    name: "Den",
+    weight: 82,
+    height: 1.73,
+    bmi() {
+        return this.weight /  (this.height * this.height )
+    }
+}
+console.log(Math.floor(user2.bmi()));
 
     
-
+if (user1.bmi() > user2.bmi()) {
+    console.log(`Индекс массы тела Петра (${Math.floor(user1.bmi())}) больше чем у Дениса (${Math.floor(user2.bmi())})`);
+}else {
+    console.log(`Индекс массы тела Дениса(${Math.floor(user2.bmi())})  больше чем у Петра(${Math.floor(user1.bmi())}) `);
+}
 
