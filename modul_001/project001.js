@@ -317,3 +317,19 @@ console.log(userArr)
 console.log(userArr[userArr.length - 2])
 console.log(userArr.at(-1))
 
+// добавление элемента в конец массива - push(возвращает длину массива)
+userArr.push('Add me in the end')
+console.log(userArr);
+
+// добавление элемента в начало массива - unshift(возвращает длину массива )
+userArr.unshift('Add to start')
+console.log(userArr);
+
+// удаление элемента в конце массива - pop(возвращает удалённый элемент)
+userArr.pop()
+console.log(userArr);
+
+// удаление элемента в начале массива - shift(возвращает удалённый элемент)
+userArr.shift()
+console.log(userArr);
+
