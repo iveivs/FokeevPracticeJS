@@ -69,3 +69,114 @@
 // ----------------------
 
 
+// 4.7 ПОЛУЧЕНИЕ И ИЗМЕНЕНИЕ СОДЕРЖИМОГО ТЕГОВ
+
+
+// let elem1 = document.querySelector("h1");
+
+// console.log(elem1.innerHTML);
+
+// elem1.innerHTML = "<p>Привет, я НОВЫЙ ТЕКСТ</p>";
+
+// -----    -----    -----
+
+// let elem1 = document.querySelector("h1");
+
+// let oldData = elem1.innerHTML;
+
+// elem1.innerHTML = `<p>${oldData}</p> <p>Привет, я НОВЫЙ ТЕКСТ 1 </p>`
+
+// -----    -----    -----
+
+// свойства для получения и изменения тегов:
+
+// elem.textContent (только текст внутри тегов)
+
+
+// elem.outerHTML (меняет сам тег)
+// elem1.outerHTML = ` <p>Привет, я НОВЫЙ ТЕКСТ 1 </p>`
+
+
+// elem.data (доступ к узлам)
+
+// console.log(elem1.firstChild);
+
+// elem1.firstChild.data = "Я новый комментарий"
+
+// -----    -----    -----
+
+// let header = document.querySelector('h1')
+
+// let secondHeader = document.createElement("h2");
+
+// secondHeader.innerHTML = "Новый заголовок h2"
+
+// header.before(secondHeader);
+// header.after(secondHeader);
+// header.prepend(secondHeader)
+
+// header.append(secondHeader, "some txt")
+// header.append("some txt") // можно просто добавлять только текст куда-то
+
+// ----- 
+
+// insertAdjacentHTML - параметры: beforebegin, afterbegin, beforeend, afterend
+
+// header.insertAdjacentHTML("afterbegin" ,"<p>SoMe TeXt</p>");
+
+// console.log(secondHeader);
+
+// ----- 
+
+
+// КЛОНИРОВАНИЕ / ПЕРЕМЕЩЕНИЕ / УДАЛЕНИЕ элементов
+
+// let header = document.querySelector('h1');
+
+// let ul = document.querySelector("ul");
+
+// // ul.prepend(header);
+
+// let ulClone = ul.cloneNode(true);
+
+// header.prepend(ulClone);   
+
+// header.remove(); // удаление тега
+
+// ----- 
+
+
+// ИЗМЕНЕНИЕ CSS стилей
+
+// let header = document.querySelector('h1');
+// header.classList.add('newClass');
+
+//  .add - добавить класс, 
+//  .remove - удалить класс ,
+//  .toggle - добавить класс если его нет, а если есть то удалить, 
+//  .contains - проверка наличия класса - возвращает true/folse
+
+// console.log(header.className);
+// header.className = "newClass";
+
+// let styleOffHeader = getComputedStyle(header);
+
+// console.log(parseInt(styleOffHeader.marginBottom));
+
+// let li = document.querySelector("li");
+// let styleOffHeader1 = getComputedStyle(li, "::before");
+// console.log(styleOffHeader1);
+
+// - - - 
+
+// let liAll = document.querySelectorAll("li");
+
+// for (let value of liAll) {
+//     value.classList.add("newClass");
+// }
+
+
+//  ПОЛУЧЕНИЕ И ИЗМЕНЕНИЕ АТРИБУТОВ DOM элементов
+
+// let img = document.querySelector("img");
+// img.src = "ft2.jpeg"
