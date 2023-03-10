@@ -61,3 +61,24 @@ const game = {
     team2: 6.5,
   },
 };
+
+// const pleayersTeamOne  = game.players[0];
+// console.log(pleayersTeamOne);
+
+
+// const pleayersTeamTwo  = game.players[1];
+// // console.log(pleayersTeamTwo);
+
+// const [goalKeeper, ...fieldPlayers] = pleayersTeamOne;
+// console.log(pleayersTeamOne);
+
+// -----------------------------
+
+const [pleayersTeamOne, pleayersTeamTwo] = game.players;
+console.log(pleayersTeamOne);
+console.log(pleayersTeamTwo);
+
+const [goalKeeper, ...fieldPlayers] = game.players[0];
+
+const allPlayers =  [...game.players[0], ...game.players[1]];
+console.log(allPlayers);

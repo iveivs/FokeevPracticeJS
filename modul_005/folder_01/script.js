@@ -88,35 +88,35 @@
 
 // ОПЕРАТОР rest 
 
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a);
-console.log(b);
-console.log(others);
-console.log(a, b, others);
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a);
+// console.log(b);
+// console.log(others);
+// console.log(a, b, others);
 
-// - - - 
+// // - - - 
 
-const obj = {
-    fruits: ["apple", "orange", "lemon" ],
-    drinks: ["juice", "tea", "coctail"],
-    food: {
-        soup: "borsh",
-        pasta: "spagetti",
-    },
-};
+// const obj = {
+//     fruits: ["apple", "orange", "lemon" ],
+//     drinks: ["juice", "tea", "coctail"],
+//     food: {
+//         soup: "borsh",
+//         pasta: "spagetti",
+//     },
+// };
 
-const {fruits, ...others2} = obj;
-console.log(fruits);
-console.log(others2);
+// const {fruits, ...others2} = obj;
+// console.log(fruits);
+// console.log(others2);
 
-// - - - 
+// // - - - 
 
-function calc(...number) {
-    let sum = 0;
-    for(let value of number) {
-        sum +=value
-    }
-    console.log(sum);
-}
+// function calc(...number) {
+//     let sum = 0;
+//     for(let value of number) {
+//         sum +=value
+//     }
+//     console.log(sum);
+// }
 
-calc(4,3,5,6,8);
+// calc(4,3,5,6,8);
