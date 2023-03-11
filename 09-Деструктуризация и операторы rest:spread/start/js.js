@@ -74,11 +74,21 @@ const game = {
 
 // -----------------------------
 
-const [pleayersTeamOne, pleayersTeamTwo] = game.players;
-console.log(pleayersTeamOne);
-console.log(pleayersTeamTwo);
+// const [pleayersTeamOne, pleayersTeamTwo] = game.players;
+// console.log(pleayersTeamOne);
+// console.log(pleayersTeamTwo);
 
-const [goalKeeper, ...fieldPlayers] = game.players[0];
+// const [goalKeeper, ...fieldPlayers] = game.players[0];
 
-const allPlayers =  [...game.players[0], ...game.players[1]];
-console.log(allPlayers);
+// const allPlayers =  [...game.players[0], ...game.players[1]];
+// // console.log(allPlayers);
+
+// const newAllPlayers = [...allPlayers, "Petr", "Kolya", "Fedya"];
+// console.log(newAllPlayers);
+
+// const {odds: {team1, x: draw, team2}} = game;
+// console.log(team1);
+// console.log(draw);
+// console.log(team2);
+
+
