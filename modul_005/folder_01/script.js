@@ -120,3 +120,70 @@
 // }
 
 // calc(4,3,5,6,8);
+
+
+// --------------------------
+
+// структура данных SET
+
+// const names = [
+//     "Dmitr",
+//     "Kolya",
+//     "Vasya",
+//     "Dmitr"
+// ]
+
+// const uniqNames = new Set(names);
+// console.log(uniqNames);
+
+
+// --------------------------
+
+// СТРУКТУРА ДАННЫХ MAP
+
+// const hotel = new Map();
+// hotel.set('categories', ['std', 'eco', 'suit', "lux"]);
+// hotel.set(true, "Мы Открыты");
+// hotel.set(false, "Мы закрыты");
+// // console.log(hotel);
+// const arr = [2, 3];
+// hotel.set(arr, "Это массив")
+// // console.log(hotel.get(true));
+// console.log(hotel.get(arr));
+// console.log(hotel.has(arr));
+
+// --------------------------
+
+// КОНВЕРТАЦИЯ РАЗЛИЧНЫХ СТРУКТУР ДАННЫХ
+
+const hotel1 = new Map([
+    ['categories', ['std', 'eco', 'suit', "lux"]],
+    [true, "Мы Открыты"],
+    [false, "Мы закрыты"],
+]);
+console.log(hotel1);
+
+const obj = {
+    name: 'John',
+    lastName: 'Travolta',
+    age: 30,
+};
+
+// const arrFromObj = Object.entries(obj);
+// console.log(arrFromObj);
+
+// const objFromArr = Object.fromEntries(arrFromObj);
+// console.log(objFromArr);
+
+// const mapFromArr = new Map(Object.entries(obj));
+// console.log(mapFromArr);
+
+// const setFromMap = new Set(hotel1);
+// console.log(setFromMap);
+
+// const arrayFromMap = Array.from(hotel1);
+// console.log(arrayFromMap);
+
+for(let [key, value] of hotel1) {
+    console.log(`ключ ${key}, значение ${value}`);
+}
