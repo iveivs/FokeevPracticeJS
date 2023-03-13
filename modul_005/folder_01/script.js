@@ -156,18 +156,18 @@
 
 // КОНВЕРТАЦИЯ РАЗЛИЧНЫХ СТРУКТУР ДАННЫХ
 
-const hotel1 = new Map([
-    ['categories', ['std', 'eco', 'suit', "lux"]],
-    [true, "Мы Открыты"],
-    [false, "Мы закрыты"],
-]);
-console.log(hotel1);
+// const hotel1 = new Map([
+//     ['categories', ['std', 'eco', 'suit', "lux"]],
+//     [true, "Мы Открыты"],
+//     [false, "Мы закрыты"],
+// ]);
+// console.log(hotel1);
 
-const obj = {
-    name: 'John',
-    lastName: 'Travolta',
-    age: 30,
-};
+// const obj = {
+//     name: 'John',
+//     lastName: 'Travolta',
+//     age: 30,
+// };
 
 // const arrFromObj = Object.entries(obj);
 // console.log(arrFromObj);
@@ -184,6 +184,84 @@ const obj = {
 // const arrayFromMap = Array.from(hotel1);
 // console.log(arrayFromMap);
 
-for(let [key, value] of hotel1) {
-    console.log(`ключ ${key}, значение ${value}`);
-}
+// for(let [key, value] of hotel1) {
+//     console.log(`ключ ${key}, значение ${value}`);
+// }
+
+// --------------------------
+
+// Работа со СТРОКАМИ
+
+// const airplane = new String("  TAP Air Tramontana");
+
+// console.log(airplane.indexOf("a"));
+// console.log(airplane.lastIndexOf("a"));
+// console.log(airplane.indexOf("q"));
+
+// console.log(airplane.slice(4));
+// console.log(airplane.slice(4,7));
+// console.log(airplane.slice(0, airplane.indexOf(" ")));
+// console.log(airplane.slice(airplane.lastIndexOf(" ") + 1));
+
+// const plane = "D430";
+
+// const checkSeat = function(seat) {
+//     // const s = seat[0];
+//     const s = seat.slice(0, 1);
+//     if(s == "A") console.log('Вам повезло, ваше место у окна');
+//     else console.log("Вам не повезло, ваше место не у окна");
+// };
+
+// checkSeat("A667")
+
+// - - - 
+
+// console.log(airplane.toLocaleLowerCase());
+// console.log(airplane.toLocaleUpperCase());
+
+// console.log(airplane.trim());
+
+// - - - - - - - - - 
+
+// const priceRub = "2990р";
+// const priceUS = priceRub.slice(0, priceRub.length - 1) / 72 + priceRub.replace('р', '$');
+// console.log(priceUS);
+
+// const str = "Привет свет свет свет";
+// const correctStr = str.replaceAll('свет', 'Мир');
+// console.log(correctStr);
+
+// const flight = 'j7392au';
+// console.log(flight.includes('j7'));
+// console.log(flight.startsWith('j7'));
+// console.log(flight.endsWith('2au'));
+
+// - - - - - - - - - 
+
+// const newNames = 'vasya anna ivan petr maria';
+
+// // const arrFromStr = newNames.split(" ");
+// // console.log(arrFromStr);
+
+// // const strFromArray = arrFromStr.join(" ");
+// // console.log(strFromArray);
+
+// function capitalNameLetter(strNames) {
+//     const arrNames = strNames.split(" ");
+//     const newUpperNames = [];
+//     for(let n of arrNames) {
+//         newUpperNames.push(n[0].toUpperCase() + n.slice(1));
+//     }
+//     console.log(newUpperNames.join(" "));
+// }
+
+// capitalNameLetter(newNames);
+
+// - - - - - - - - - 
+
+// const cardNumber = "6453";
+// const cardNumber = String(6453);
+
+const cardNumber = 6453 + "";
+console.log(cardNumber.padStart(16, "*"));
+console.log(cardNumber.padEnd(16, "*"));
