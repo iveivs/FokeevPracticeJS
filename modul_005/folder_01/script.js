@@ -262,6 +262,118 @@
 // const cardNumber = "6453";
 // const cardNumber = String(6453);
 
-const cardNumber = 6453 + "";
-console.log(cardNumber.padStart(16, "*"));
-console.log(cardNumber.padEnd(16, "*"));
+// const cardNumber = 6453 + "";
+// console.log(cardNumber.padStart(16, "*"));
+// console.log(cardNumber.padEnd(16, "*"));
+
+
+// РАБОТА ФУНКЦИЙ 
+
+// const bookings = [];
+
+// function createBooking(flightNum, numPassengers = 2, price = numPassengers * 100) {
+//     // // Старая запись (присваивание значения переменной,по умолчанию):
+//     // numPassengers = numPassengers || 1;
+//     // price = price || 1;
+//     // // - - -
+//     const booking = {
+//         // длинная запись:
+//         // flightNum: flightNum,
+//         // numPassengers: numPassengers,
+//         // price: price,
+//         // короткая запись:
+//         flightNum,
+//         numPassengers,
+//         price,
+//     }
+//     console.log(booking);
+//     bookings.push(booking);
+//     // console.log(bookings);
+// }
+
+// createBooking("32SAKwd");
+
+// - - -
+
+// const bookings1 = [];
+
+// function createBooking1(
+//     numPassengers1 = 2, 
+//     price1 = numPassengers1 * 100,
+//     flightNum1 ) {
+//     const booking1 = {
+//         flightNum1,
+//         numPassengers1,
+//         price1,
+//     }
+//     console.log(booking1);
+//     bookings1.push(booking1);
+// }
+
+// createBooking1(10, undefined, "32HF9f" )
+
+
+
+// - - - ОБЪЕКТЫ КАК ПАРАМЕТРЫ ФУНКЦИЙ - - -
+
+// const flight = "42FLDJ899";
+// const passenger = {
+//     name: "John",
+//     passport: 87979879798,
+// }
+
+// function checkIn(flightNum, passId) {
+//     flightNum = "111RG";
+//     passId.name = "Mr." + passId.name;
+
+//     if (passId.passport == 87979879798) {
+//         console.log("USPESHNAYA REGESTRACIYA");
+//     }else {
+//         console.log("NE USPESHNAYA REGESTRACIYA");
+//     }
+// }
+
+// function newPassport(persone) {
+//     persone.passport = Math.trunc(Math.random() * 1000000);
+//     console.log(persone.passport);
+// };
+
+// newPassport(passenger);
+// checkIn(flight, passenger);
+
+
+// // console.log(flight);
+// // console.log(passenger.name);
+
+
+//  - - - МЕТОД forEach() 
+
+// const arr1 = ['a', 'b', 'c'];
+
+// for(let value of arr1) {
+//     console.log(value);
+// };
+
+// arr1.forEach(function(value, key, arr1) {
+//     console.log(value, key, arr1);
+// });
+
+// const forExampleMap = new Map ([
+//     ["USD", "Dollars"], 
+//     ["RUB", "Rubles"],
+//     ["EUR", "Euro"],
+// ]);
+
+// forExampleMap.forEach(function(value, key, forExampleMap) {
+//     console.log(key);
+//     console.log(value);
+//     console.log(forExampleMap);
+// });
+
+// const forExampleSet = new Set(forExampleMap);
+
+// forExampleSet.forEach(function(value, key, forExampleSet){
+//     console.log(key);
+//     console.log(value);
+//     console.log(forExampleSet);
+// });
