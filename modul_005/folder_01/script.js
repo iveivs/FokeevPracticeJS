@@ -377,3 +377,64 @@
 //     console.log(value);
 //     console.log(forExampleSet);
 // });
+
+// - - - - - 
+
+// const rub = [100, 232, 191, 578];
+// const usd = [];
+
+// rub.forEach(function(val){
+//     usd.push((val / 72).toFixed(2));
+// });
+// console.log(usd);
+
+// // const usd2 = rub.map(function(val) {
+// //     return (val / 72).toFixed(2);
+// // });
+
+// // тоже самое только через стрелочну функцию:
+// const usd2 = rub.map((val) => (val / 72).toFixed(2));
+// console.log(usd2);
+
+
+// function createLogIn(name) {
+//   const userLogIn = name.toLowerCase().split(" ").map(function(val){
+//     return val[0];
+//   })
+//   .join('');
+//   return userLogIn;
+// };
+// console.log(createLogIn("Stanislav Ivanchenko"));
+
+// - - - - - - - - -
+
+// МЕТОД FILTER
+
+// const arr = [1, -12, 22, 27, -26, 73]
+
+// const filteredArr = arr.filter(function(val) {
+//     return val > 0;
+// });
+// console.log(filteredArr);
+
+// - - - - - - - -
+
+// МЕТОД REDUCE
+
+const arr = [5, 5, 15, 4];
+
+const sum = arr.reduce(function(accum, val){
+
+    return accum + val;
+});
+console.log(sum);
+
+const maxInArr = arr.reduce(function(accum, val){
+    if(accum > val) {
+        return accum;
+    }else{
+        return val;
+    }
+}, arr[0])
+console.log(maxInArr);
+

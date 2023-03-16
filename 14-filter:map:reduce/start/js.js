@@ -18,3 +18,22 @@ dogs2 = [16, 6, 10, 5, 6, 1, 4]
 
 
 */
+const dogs1 = [5, 2, 4, 1, 15, 8, 3]
+const dogs2 = [16, 6, 10, 5, 6, 1, 4]
+
+function calcAverageHumanAge(dogsAgeArr) {
+    const dogAgeToHuman = dogsAgeArr.map(function(age){
+        return age <= 2 ? 2 * age : 16 + age * 4;
+    });
+    console.log(dogAgeToHuman);
+    const filtredDogAge = dogAgeToHuman.filter(function(val){
+        return val >= 18;
+    });
+    console.log(filtredDogAge);
+    const averageDogAge = filtredDogAge.reduce(function(acc, age){
+        // return accum += val;
+        return acc + age;
+    }) / filtredDogAge.length;
+    console.log(averageDogAge);
+}
+calcAverageHumanAge([...dogs1, ...dogs2 ])

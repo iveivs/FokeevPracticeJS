@@ -51,3 +51,64 @@ const inputTransferAmount = document.querySelector(".form__input--amount");
 const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
+
+
+
+function displayMovements(movements) {
+  containerMovements.innerHTML = " ";
+  movements.forEach(function(value, i) {
+    const type = value > 0 ? "deposit" : "withdrawal";
+    const operationName = value > 0 ? "ПОПОЛНЕНИЕ" : "СНЯТИЕ"
+    const html = `
+    <div class="movements__row">
+          <div class="movements__type movements__type--${type}">
+            ${i +1} ${operationName}
+          </div>
+          <div class="movements__date">24/01/2037</div>
+          <div class="movements__value">${value}₽</div>
+        </div>
+    
+    `;
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+
+displayMovements(account1.movements);
+
+// function createLogIn(name) {
+//   const userLogIn = name.toLowerCase().split(" ").map(function(val){
+//     return val[0];
+//   })
+//   .join('');
+//   return userLogIn;
+// };
+
+// accounts.forEach(function(val) {
+//   val.logIn = createLogIn(val.owner);
+//   console.log(val);
+// })
+// console.log(createLogIn("Stanislav Ivanchenko"));
+
+// УКОРОЧЕННАЯ ЗАПИСЬ:
+
+function createLogIn(accs) {
+  accs.forEach(function(acc) {
+    acc.logIn = acc.owner
+    .toLowerCase()
+    .split(" ")
+    .map(function(val){
+        return val[0];
+      })
+      .join('');
+  });
+}
+createLogIn(accounts);
+console.log(accounts);
+
+function calcPrintBalance(movements) {
+  const balance = movements.reduce(function(accum, val){
+    return accum + val;
+  });
+  labelBalance.textContent = `${balance}₽`;
+}
+calcPrintBalance(account1.movements);
