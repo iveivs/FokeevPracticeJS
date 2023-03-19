@@ -421,20 +421,57 @@
 
 // МЕТОД REDUCE
 
-const arr = [5, 5, 15, 4];
+// const arr = [5, 5, 15, 4];
 
-const sum = arr.reduce(function(accum, val){
+// const sum = arr.reduce(function(accum, val){
 
-    return accum + val;
-});
-console.log(sum);
+//     return accum + val;
+// });
+// console.log(sum);
 
-const maxInArr = arr.reduce(function(accum, val){
-    if(accum > val) {
-        return accum;
-    }else{
-        return val;
-    }
-}, arr[0])
-console.log(maxInArr);
+// const maxInArr = arr.reduce(function(accum, val){
+//     if(accum > val) {
+//         return accum;
+//     }else{
+//         return val;
+//     }
+// }, arr[0])
+// console.log(maxInArr);
 
+// - - - - - - - -
+
+//  МЕТОД FIND
+
+// const arr = [10, 5, -2, -5, 23, -7];
+
+// const firstMinusNum = arr.find(function(num){
+//     return num < 0;
+// })
+// console.log(firstMinusNum);
+
+// - - - 
+
+// const account1 = {
+//     owner: "Dmitrii Fokeev",
+//     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//     pin: 1111,
+// };
+
+// const account2 = {
+//     owner: "Anna Filimonova",
+//     movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+//     pin: 2222,
+// };
+
+// const accounts = [account1, account2];
+
+// const acc = accounts.find(function(acc){
+//     return acc.owner === "Anna Filimonova";
+// });
+// console.log(acc);
+
+
+// МЕТОД FLAT
+
+// const arr = [[1, [5, -2]], 4, 9, 0, [19, 35]];
+// console.log(arr.flat(2));

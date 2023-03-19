@@ -36,4 +36,4 @@ function calcAverageHumanAge(dogsAgeArr) {
     }) / filtredDogAge.length;
     console.log(averageDogAge);
 }
-calcAverageHumanAge([...dogs1, ...dogs2 ])
+calcAverageHumanAge([...dogs1, ...dogs2]);
