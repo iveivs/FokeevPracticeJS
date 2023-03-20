@@ -471,7 +471,44 @@
 // console.log(acc);
 
 
+// - - - - - - - -
+
+
 // МЕТОД FLAT
 
 // const arr = [[1, [5, -2]], 4, 9, 0, [19, 35]];
 // console.log(arr.flat(2));
+
+// - - - - - - - -
+
+// МЕТОД SORT 
+
+// const arr = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// arr.sort(function(a, b) {
+//     // Длинная запись:
+//     // if(a > b) {
+//     //     return 1;
+//     // }
+//     // if (a < b) {
+//     //     return -1;
+//     // }
+//     // Короткая запись:
+//     return a - b;
+// });
+// console.log(arr);
+
+
+// МЕТОД FILL - изменяет оригиналльный массив
+
+// const arr = [1,2,3,4,5]
+// arr.fill("Hello", 2, 3);
+// console.log(arr);
+
+
+// МЕТОД Array.from() - не изменяет оригинальный массив
+
+// const str = "12345";
+// console.log(Array.from(str, function(val, i) {
+//     return "Число " + val;
+// }));

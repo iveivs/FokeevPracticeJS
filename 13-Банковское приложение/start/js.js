@@ -55,9 +55,11 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 // Вывод на страницу всех приходов и уходов
 
-function displayMovements(movements) {
+function displayMovements(movements, sort = false) {
   containerMovements.innerHTML = " ";
-  movements.forEach(function(value, i) {
+
+  const movs = sort ? movements.slice().sort((a,b) => a - b ) : movements;
+  movs.forEach(function(value, i) {
     const type = value > 0 ? "deposit" : "withdrawal";
     const operationName = value > 0 ? "ПОПОЛНЕНИЕ" : "СНЯТИЕ"
     const html = `
@@ -188,11 +190,38 @@ btnClose.addEventListener('click', function(e) {
 
 btnLoan.addEventListener('click', function(e) {
   e.preventDefault();
-  const amount = Number(inputLoanAmount.value)
+  const amount = Number(inputLoanAmount.value);
   if(amount > 0) {
     currentAccount.movements.push(amount);
-    updateUi(currentAccount )
+    updateUi(currentAccount);
   }
   inputLoanAmount.value === "";
+});
+
+// Длинная запись:
+// const accMov = accounts.map(function(acc) {
+//   return acc.movements;
+// });
+
+// const alMov = accMov.flat();
+
+// const allBalance = alMov.reduce(function(acc, mov) {
+//   return acc + mov;
+// }, 0);
+
+// Короткая запись:
+const overalBalance = accounts.map((acc) => acc.movements).flat().reduce((acc, mov) => acc + mov, 0);
+
+
+let sorted = false; 
+btnSort.addEventListener("click", function(e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 })
 
+labelBalance.addEventListener("click", function() {
+  Array.from(document.querySelectorAll('.movements__value'), function(val, i) {
+    return val.innerText = val.textContent.replace("₽", " RUB");
+  });
+});
