@@ -101,31 +101,29 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 
-const now = new Date();
-const year = now.getFullYear();
-const month = `${now.getMonth() + 1}`.padStart(2, 0);
-const date = `${now.getDate()}`.padStart(2, 0);
-
-const hours = `${now.getHours()}`.padStart(2, 0);
-const minutes = `${now.getMinutes()}`.padStart(2, 0);
-labelDate.textContent = `${date}/${month}/${year} ${hours}:${minutes}`;
-
 
 // Вывод на страницу всех приходов и уходов
-function displayMovements(movements, sort = false) {
+function displayMovements(acc, sort = false) {
   containerMovements.innerHTML = "";
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort ? acc.movements.slice().sort((a, b) => a - b) : acc.movements;
 
   movs.forEach(function (value, i) {
     const type = value > 0 ? "deposit" : "withdrawal";
     const typeMessage = value > 0 ? "внесение" : "снятие";
+    const date = new Date(acc.movementsDates[i]);
+    const year = date.getFullYear();
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const hours = `${date.getHours()}`.padStart(2, 0);
+    const minutes = `${date.getMinutes()}`.padStart(2, 0);
+    const displayDate = `${day}/${month}/${year} ${hours}:${minutes}`;
     const html = `
     <div class="movements__row">
           <div class="movements__type movements__type--${type}">
             ${i + 1} ${typeMessage}
           </div>
-          <div class="movements__date">24/01/2037</div>
+          <div class="movements__date">${displayDate}</div>
           <div class="movements__value">${value}₽</div>
         </div>
     `;
@@ -173,7 +171,7 @@ function calcDisplaySum(movements) {
 
 //Обновление интерфейса сайта
 function updateUi(acc) {
-  displayMovements(acc.movements);
+  displayMovements(acc);
   calcPrintBalance(acc);
   calcDisplaySum(acc.movements);
 }
@@ -191,6 +189,13 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = 100;
 
     inputLoginPin.value = inputLoginUsername.value = "";
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const date = `${now.getDate()}`.padStart(2, 0);
+    const hours = `${now.getHours()}`.padStart(2, 0);
+    const minutes = `${now.getMinutes()}`.padStart(2, 0);
+    labelDate.textContent = `${date}/${month}/${year} ${hours}:${minutes}`;
 
     console.log("Pin ok");
     updateUi(currentAccount);
@@ -213,6 +218,7 @@ btnTransfer.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(-amount);
     reciveAcc.movements.push(amount);
+    currentAccount.movementsDates.push(new Date).toISOString();
     updateUi(currentAccount);
     inputTransferTo.value = inputTransferAmount.value = "";
   }
@@ -242,6 +248,7 @@ btnLoan.addEventListener("click", function (e) {
   const amount = Number(inputLoanAmount.value);
   if (amount > 0) {
     currentAccount.movements.push(amount);
+    currentAccount.movementsDates.push(new Date).toISOString();
     updateUi(currentAccount);
   }
   inputLoanAmount.value = "";
@@ -268,7 +275,7 @@ const overalBalance = accounts
 let sorted = false;
 btnSort.addEventListener("click", function (e) {
   e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+  displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
 
@@ -278,3 +285,8 @@ labelBalance.addEventListener("click", function () {
     return (val.innerText = val.textContent.replace("₽", "RUB"));
   });
 });
+
+const future = new Date(2025, 3, 15);
+const now = new Date(2025, 2, 10);
+const res = +future - +now;
+console.log(res / 1000 / 60 / 60 / 24);
