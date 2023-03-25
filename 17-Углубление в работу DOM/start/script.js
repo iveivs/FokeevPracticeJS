@@ -29,3 +29,32 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+console.log(window); 
+
+const btnScroll = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector('#section--1');
+
+btnScroll.addEventListener('click', function() {
+  // window.scrollTo({
+  //   left: section1.getBoundingClientRect().left + window.pageXOffset,
+  //   top: section1.getBoundingClientRect().top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+  section1.scrollIntoView({behavior: "smooth"});
+});
+console.log(btnScroll.getBoundingClientRect());
+
+
+
+// Остановка события
+// const h1 = document.querySelector('h1');
+
+// function alertH1() {
+//   alert("Hello");
+// };
+// h1.addEventListener("mouseenter", alertH1);
+
+// setTimeout(function() {
+//   h1.removeEventListener("mouseenter", alertH1);
+// }, 4000);
