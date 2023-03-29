@@ -71,7 +71,7 @@ console.log(btnScroll.getBoundingClientRect());
 // };
 // console.log(randomColor());
 
-// const nav = document.querySelector(".nav");
+const nav = document.querySelector(".nav");
 // const navLinks = document.querySelector(".nav__links");
 // const link = document.querySelector(".nav__link");
 
@@ -101,3 +101,65 @@ console.log(btnScroll.getBoundingClientRect());
 //     document.querySelector(id).scrollIntoView({behavior: "smooth"})
 //   });
 // });
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  e.preventDefault();
+  // console.log(e.target);
+  if(e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute('href') 
+    document.querySelector(id).scrollIntoView({behavior: "smooth"})
+  }
+});
+
+// Работа табов
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabContent = document.querySelectorAll('.operations__content');
+
+tabContainer.addEventListener('click', function(e) {
+  e.preventDefault();
+  const clicked = e.target.closest(".operations__tab")
+  console.log(clicked);
+  if(!clicked) return
+  // // или
+  // if (clicked) {
+  //   clicked.classList.add('operations__tab--active');
+  // };
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+  tabContent.forEach(content => content.classList.remove('operations__content--active'))
+
+  // console.log(clicked.dataset.tab);
+  document
+  .querySelector(`.operations__content--${clicked.dataset.tab}`)
+  .classList.add('operations__content--active');
+});
+
+function hover(e, opacity) {
+  if(e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('.nav__logo');
+
+    siblings.forEach(el => {
+      if(el != link) {
+        el.style.opacity = this;
+      }
+    });
+    logo.style.opacity = this;
+  };
+}
+
+// nav.addEventListener('mouseover', function(e) {
+//   hover(e, 0.5);
+// });
+
+// nav.addEventListener('mouseout',function(e) {
+//   hover(e, 1);
+// });
+
+// Вариант более короткий:
+
+nav.addEventListener('mouseover', hover.bind(0.5));
+nav.addEventListener('mouseout', hover.bind(1));
