@@ -136,6 +136,8 @@ tabContainer.addEventListener('click', function(e) {
   .classList.add('operations__content--active');
 });
 
+
+//Прозрачность навигационного меню
 function hover(e, opacity) {
   if(e.target.classList.contains('nav__link')) {
     const link = e.target;
@@ -163,3 +165,106 @@ function hover(e, opacity) {
 
 nav.addEventListener('mouseover', hover.bind(0.5));
 nav.addEventListener('mouseout', hover.bind(1));
+
+// - - - - - - - - - - -
+
+const navContainer = document.querySelector('.nav')
+// Появление меню после прокрутки
+
+
+// Старый способ:
+
+
+// const coord = section1.getBoundingClientRect();
+// // console.log(coord);
+
+// window.addEventListener('scroll', function () {
+//   // console.log(window.scrollY);
+//   if(window.scrollY > coord.top) {
+//     navContainer.classList.add("sticky");
+//   } else {
+//     navContainer.classList.remove("sticky");
+//   }
+// })
+
+// Новый способ:
+
+function callBack(entries) {
+  if(!entries[0].isIntersecting) {
+    navContainer.classList.add("sticky");
+  } else {
+    navContainer.classList.remove("sticky");
+  }
+  
+}
+const options = {
+  threshold: 0,
+  rootMargin: "-90px",
+};
+
+const observer = new IntersectionObserver(callBack, options);
+observer.observe(document.querySelector(".header"));
+
+// Всплытие секций
+
+const allSections = document.querySelectorAll('.section');
+function revealSection(entries, observe) {
+  if(entries[0].isIntersecting){
+    entries[0].target.classList.remove('section--hidden')
+    observe.unobserve(entries[0].target)
+  }
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {threshold: 0.15});
+
+allSections.forEach(function(section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden')
+});
+
+// Слайдер
+
+const slides = document.querySelectorAll('.slide');
+const slider = document.querySelector('.slider');
+const btnRight = document.querySelector('.slider__btn--right');
+const btnLeft = document.querySelector('.slider__btn--left');
+
+let currentSlide = 0;
+const maxSlides = slides.length;
+
+// slider.style.scale = 0.5;
+// slider.style.overflow = "visible";
+
+// slides.forEach(function (slide, i) {
+//   slide.style.transform = `translateX(${100 * i}%)`
+// });
+
+function goToSlide(slide) {
+  slides.forEach(function (sld, i) {
+    sld.style.transform = `translateX(${100 * (i-slide)}%)`
+  });
+}
+
+goToSlide(0)
+
+function nextSlide() {
+  if(currentSlide === maxSlides - 1) {
+    currentSlide = 0;
+  } else {
+    currentSlide++
+  }
+  goToSlide(currentSlide);
+}
+
+function prevSlide() {
+  if(currentSlide === 0) {
+    currentSlide = maxSlides - 1
+  } else {
+    currentSlide--;
+  }
+  
+  goToSlide(currentSlide);
+}
+
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
